@@ -114,15 +114,46 @@ export default function ThankYouPage() {
           </motion.div>
         </motion.div>
 
-        {/* Footer Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+        {/* Contact Information */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.4 }}
-          className="text-sm text-zinc-500 mt-8"
+          className="mt-8 bg-gradient-to-r from-zinc-50 to-white rounded-2xl p-6 border border-zinc-200"
         >
-          Если у вас есть срочные вопросы, вы можете связаться с нами по телефону прямо сейчас
-        </motion.p>
+          <h3 className="text-lg font-semibold text-zinc-900 mb-4 text-center">Свяжитесь с нами прямо сейчас</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <a
+              href="tel:+375291234567"
+              className="flex items-center justify-center space-x-3 bg-white p-4 rounded-xl border border-zinc-200 hover:border-zinc-300 hover:shadow-md transition-all duration-200 group"
+            >
+              <Phone className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />
+              <div className="text-left">
+                <div className="text-sm text-zinc-500">Телефон</div>
+                <div className="font-semibold text-zinc-900">+375 (29) 123-45-67</div>
+              </div>
+            </a>
+
+            <a
+              href="https://t.me/maestro_mebel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-3 bg-white p-4 rounded-xl border border-zinc-200 hover:border-zinc-300 hover:shadow-md transition-all duration-200 group"
+            >
+              <MessageCircle className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+              <div className="text-left">
+                <div className="text-sm text-zinc-500">Telegram</div>
+                <div className="font-semibold text-zinc-900">@maestro_mebel</div>
+              </div>
+            </a>
+          </div>
+
+          <div className="text-center mt-4">
+            <p className="text-sm text-zinc-600">
+              Рабочие часы: Пн-Пт 9:00-18:00, Сб 10:00-16:00
+            </p>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   )
