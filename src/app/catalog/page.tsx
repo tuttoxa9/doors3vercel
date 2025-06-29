@@ -49,7 +49,8 @@ export default function CatalogPage() {
       const result = await response.json()
       console.log('Order submitted successfully:', result)
 
-      alert('Заказ успешно отправлен! Мы свяжемся с вами в ближайшее время.')
+      // Перенаправляем на страницу благодарности
+      window.location.href = '/thank-you'
     } catch (error) {
       console.error('Error submitting order:', error)
       alert('Произошла ошибка при отправке заказа. Попробуйте позже.')

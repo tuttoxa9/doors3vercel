@@ -51,12 +51,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
       if (response.ok) {
         setSubmissionStatus('success')
-        // Закрываем форму через 2 секунды после успешной отправки
+        // Перенаправляем на страницу благодарности через 1 секунду
         setTimeout(() => {
-          onClose()
-          setSubmissionStatus('idle')
-          setFormData({ name: '', phone: '+375', comment: '' })
-        }, 2000)
+          window.location.href = '/thank-you'
+        }, 1000)
       } else {
         setSubmissionStatus('error')
         setErrorMessage(result.error || 'Произошла ошибка при отправке заявки')
