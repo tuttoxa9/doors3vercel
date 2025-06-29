@@ -124,13 +124,13 @@ export default function ThankYouPage() {
           <h3 className="text-lg font-semibold text-zinc-900 mb-4 text-center">Свяжитесь с нами прямо сейчас</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <a
-              href="tel:+375291234567"
+              href="tel:+375291565232"
               className="flex items-center justify-center space-x-3 bg-white p-4 rounded-xl border border-zinc-200 hover:border-zinc-300 hover:shadow-md transition-all duration-200 group"
             >
               <Phone className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />
               <div className="text-left">
                 <div className="text-sm text-zinc-500">Телефон</div>
-                <div className="font-semibold text-zinc-900">+375 (29) 123-45-67</div>
+                <div className="font-semibold text-zinc-900">+375 (29) 156-52-32</div>
               </div>
             </a>
 
