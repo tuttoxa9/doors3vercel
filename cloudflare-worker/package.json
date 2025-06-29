@@ -1,0 +1,28 @@
+{
+  "name": "firebase-image-cache-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker для кэширования изображений из Firebase Storage",
+  "main": "src/worker.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "tail": "wrangler tail",
+    "publish": "wrangler publish"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "firebase",
+    "storage",
+    "cache",
+    "cdn"
+  ],
+  "author": "Maestro Mebel",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "wrangler": "^3.22.1",
+    "typescript": "^5.3.3"
+  }
+}

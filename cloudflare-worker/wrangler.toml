@@ -1,0 +1,20 @@
+name = "firebase-image-cache"
+main = "src/worker.ts"
+compatibility_date = "2024-01-15"
+
+# Переменные окружения
+[vars]
+FIREBASE_STORAGE_BUCKET = "mebel-be602.firebasestorage.app"
+FIREBASE_PROJECT_ID = "mebel-be602"
+CDN_DOMAIN = "cdn.maestromebel.by"
+
+# Настройки роутов
+[[routes]]
+pattern = "cdn.maestromebel.by/*"
+zone_name = "maestromebel.by"
+
+# Настройки KV для кэширования (опционально)
+# [[kv_namespaces]]
+# binding = "IMAGE_CACHE"
+# id = "your-kv-namespace-id"
+# preview_id = "your-preview-kv-namespace-id"
