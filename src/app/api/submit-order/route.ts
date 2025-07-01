@@ -1,4 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
+import { db } from '@/lib/firebase'
+import { collection, addDoc } from 'firebase/firestore'
 
 interface CartItem {
   product: {
@@ -21,6 +23,26 @@ interface OrderData {
   totalItems: number
   totalPrice: number
   timestamp: string
+}
+
+interface FirestoreOrderItem {
+  id: string
+  name: string
+  price: number
+  quantity: number
+}
+
+interface FirestoreOrder {
+  id: string
+  name: string
+  phone: string
+  email: string
+  address: string
+  status: string
+  createdAt: string
+  items: FirestoreOrderItem[]
+  total: number
+  notes: string
 }
 
 export async function POST(request: NextRequest) {
@@ -100,17 +122,54 @@ ${orderData.comment ? `💬 Комментарий: ${orderData.comment}` : ''}
       throw new Error('Failed to send message to Telegram')
     }
 
-    // Firestore функциональность удалена для оптимизации
-    console.log('Order processed successfully for Telegram:', orderData.phone)
+    // Сохраняем заказ в Firestore
+    const firestoreOrder: FirestoreOrder = {
+      id: `ORDER_${Date.now()}`,
+      name: orderData.name || 'Не указано',
+      phone: orderData.phone,
+      email: '', // Пустое поле, так как email не передается
+      address: orderData.address || '',
+      status: 'new',
+      createdAt: new Date().toISOString(),
+      items: orderData.items.map(item => ({
+        id: item.product.id,
+        name: item.product.name,
+        price: item.price,
+        quantity: item.quantity
+      })),
+      total: orderData.totalPrice,
+      notes: orderData.comment || ''
+    }
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Заказ успешно отправлен!',
-        orderId: `ORDER_${Date.now()}`
-      },
-      { status: 200, headers: corsHeaders }
-    )
+    try {
+      const docRef = await addDoc(collection(db, 'orders'), firestoreOrder)
+      console.log('Order saved to Firestore with ID:', docRef.id)
+
+      // Обновляем ID документа
+      const finalOrder = { ...firestoreOrder, id: docRef.id }
+
+      console.log('Order processed successfully:', orderData.phone)
+
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Заказ успешно отправлен!',
+          orderId: docRef.id
+        },
+        { status: 200, headers: corsHeaders }
+      )
+    } catch (firestoreError) {
+      console.error('Firestore error:', firestoreError)
+      // Продолжаем выполнение, даже если Firestore недоступен
+      return NextResponse.json(
+        {
+          success: true,
+          message: 'Заказ отправлен в Telegram, но есть проблемы с базой данных.',
+          orderId: `ORDER_${Date.now()}`
+        },
+        { status: 200, headers: corsHeaders }
+      )
+    }
 
   } catch (error) {
     console.error('Error:', error)
