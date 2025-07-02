@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Star, ArrowRight, Phone, Mail, MapPin, Check, Loader2, CheckCircle, XCircle } from 'lucide-react'
+import { Star, ArrowRight, Phone, Mail, MapPin, Check, Loader2, CheckCircle, XCircle, Truck } from 'lucide-react'
+import Link from 'next/link'
 import VideoBackground from './VideoBackground'
 import SmoothRotatingText from './SmoothRotatingText'
 import ReviewModal from './ReviewModal'
@@ -276,8 +277,8 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             />
           </div>
 
-          {/* Кнопка по центру */}
-          <div className="flex justify-center">
+          {/* Кнопки по центру */}
+          <div className="flex flex-col items-center space-y-4">
             <motion.button
               onClick={() => setShowContactForm?.(true)}
               className="bg-zinc-900 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center space-x-2"
@@ -287,6 +288,18 @@ export default function MainSection({ showContactForm = false, setShowContactFor
               <span>Заказать консультацию</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
+
+            {/* Кнопка доставки только для мобильных устройств */}
+            <Link href="/delivery" className="md:hidden">
+              <motion.div
+                className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors duration-200 inline-flex items-center space-x-2 border border-white/20"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Truck className="w-4 h-4" />
+                <span>Доставка</span>
+              </motion.div>
+            </Link>
           </div>
 
         </div>
