@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Статический экспорт
-  output: 'export',
-  distDir: 'out',
+  // Убираем статический экспорт для поддержки API роутов
+  // output: 'export',
+  // distDir: 'out',
 
   // Оптимизация бандла
   experimental: {},

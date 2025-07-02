@@ -2,6 +2,9 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/firebase'
 import { collection, addDoc } from 'firebase/firestore'
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface CartItem {
   product: {
     id: string

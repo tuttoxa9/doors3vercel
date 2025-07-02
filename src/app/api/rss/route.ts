@@ -3,6 +3,9 @@ import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import type { Product } from '@/types/product';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
+
 export async function GET() {
   const baseUrl = 'https://maestroworks.ru';
   const lastBuildDate = new Date().toUTCString();
