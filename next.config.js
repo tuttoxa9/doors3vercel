@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Статический экспорт
+  output: 'export',
+  distDir: 'out',
+
   // Оптимизация бандла
   experimental: {},
 

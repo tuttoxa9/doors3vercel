@@ -265,8 +265,7 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-zinc-900 mb-3">Каталог товаров пуст</h3>
-                <p className="text-zinc-600 mb-2">В данный момент наш каталог пополняется новыми товарами.</p>
-                <p className="text-sm text-zinc-500 mb-6">Для добавления товаров используйте админ-панель</p>
+                <p className="text-zinc-600 mb-6">В данный момент наш каталог пополняется новыми товарами.</p>
                 <button
                   onClick={onContactClick}
                   className="bg-zinc-900 text-white px-6 py-3 rounded-full font-medium hover:bg-zinc-800 transition-colors duration-200"

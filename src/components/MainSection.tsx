@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Star, ArrowRight, Phone, Mail, MapPin, Check, Loader2, CheckCircle, XCircle } from 'lucide-react'
 import VideoBackground from './VideoBackground'
 import SmoothRotatingText from './SmoothRotatingText'
+import ReviewModal from './ReviewModal'
 
 interface MainSectionProps {
   showContactForm?: boolean
@@ -21,6 +22,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
   })
   const [submissionStatus, setSubmissionStatus] = useState<SubmissionStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
 
   const rotatingTexts = [
     "Качественно",
@@ -31,6 +33,171 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     "Креативно",
     "Стильно",
     "Функционально"
+  ]
+
+  const allReviews = [
+    {
+      id: 1,
+      name: "Виталий Новицкий",
+      review: "Заказывали встроенный шкаф в прихожую. Мастер идеально вписал его в нашу нишу неправильной формы, и теперь у нас в два раза больше места для хранения. Спасибо команде!",
+      rating: 5,
+      category: "Шкафы",
+      date: "15 марта 2025",
+      verified: true
+    },
+    {
+      id: 2,
+      name: "Екатерина Волкова",
+      review: "Делали гардеробную в спальне 3х2 метра. Система хранения продумана до мелочей - отдельные зоны для костюмов, белья, обуви. Даже антресоли используются максимально эффективно.",
+      rating: 4,
+      category: "Шкафы",
+      date: "8 февраля 2025",
+      verified: true
+    },
+    {
+      id: 3,
+      name: "Иван Петренко",
+      review: "Заказали кухонный гарнитур с нестандартными размерами под потолки 3.2м. Верхние шкафы сделали до самого верха, и кухня выглядит монолитно. Качество фасадов отличное!",
+      rating: 5,
+      category: "Шкафы",
+      date: "22 января 2025",
+      verified: true
+    },
+    {
+      id: 4,
+      name: "Светлана Кравцова",
+      review: "Комод в детскую комнату превзошел все ожидания! 6 просторных ящиков с плавным закрыванием, качественная фурнитура. Ребенок легко может сам доставать вещи, все под рукой.",
+      rating: 5,
+      category: "Комоды",
+      date: "5 января 2025",
+      verified: true
+    },
+    {
+      id: 5,
+      name: "Роман Зубко",
+      review: "Письменный стол для домашнего офиса сделали точно по размерам ниши. Встроенные ящики и кабель-каналы - все продумано. Работать стало намного удобнее, все документы под рукой.",
+      rating: 4,
+      category: "Столы",
+      date: "18 декабря 2024",
+      verified: true
+    },
+    {
+      id: 6,
+      name: "Анжелика Михайлова",
+      review: "Полки в гостиную под телевизор - просто находка! Скрытое крепление, идеально ровные линии. Вся техника размещена аккуратно, проводов не видно. Интерьер преобразился!",
+      rating: 5,
+      category: "Полки",
+      date: "30 ноября 2024",
+      verified: true
+    },
+    {
+      id: 7,
+      name: "Максим Лебедев",
+      review: "Обеденный стол на 8 человек с раздвижным механизмом работает безупречно уже полгода. Качество древесины отличное, никаких сколов и царапин. Гости всегда восхищаются!",
+      rating: 5,
+      category: "Столы",
+      date: "14 октября 2024",
+      verified: true
+    },
+    {
+      id: 8,
+      name: "Юлия Савченко",
+      review: "Комод-трансформер в спальню стал настоящим спасением для маленькой квартиры. Днем - стильный комод, вечером - туалетный столик с зеркалом. Гениальное решение!",
+      rating: 4,
+      category: "Комоды",
+      date: "25 сентября 2024",
+      verified: true
+    },
+    {
+      id: 9,
+      name: "Александр Рыбаков",
+      review: "Угловые полки в ванную комнату используют каждый сантиметр пространства. Влагостойкое покрытие, аккуратная установка. Теперь все банные принадлежности имеют свое место.",
+      rating: 5,
+      category: "Полки",
+      date: "7 августа 2024",
+      verified: true
+    },
+    {
+      id: 10,
+      name: "Ольга Тимошенко",
+      review: "Шкаф-купе на всю стену в коридоре вместил вещи всей семьи. Зеркальные двери визуально расширили пространство. Механизм работает бесшумно, направляющие качественные.",
+      rating: 5,
+      category: "Шкафы",
+      date: "19 июня 2024",
+      verified: true
+    },
+    {
+      id: 11,
+      name: "Денис Клименко",
+      review: "Журнальный столик с подъемной столешницей - очень функциональная вещь! Скрытые ящики для мелочей, а при подъеме получается полноценное рабочее место. Качество на высоте.",
+      rating: 4,
+      category: "Столы",
+      date: "3 мая 2024",
+      verified: true
+    },
+    {
+      id: 12,
+      name: "Инна Григорьева",
+      review: "Антресольные полки на кухне увеличили место для хранения в разы. Доступ удобный, крепления надежные. Даже через год все держится отлично, ничего не провисает.",
+      rating: 5,
+      category: "Полки",
+      date: "12 апреля 2024",
+      verified: true
+    },
+    {
+      id: 13,
+      name: "Богдан Романов",
+      review: "Комод под лестницей - идеальное использование пространства! Нестандартная трапециевидная форма, но все ящики выдвигаются легко. Мастера учли каждый сантиметр.",
+      rating: 4,
+      category: "Комоды",
+      date: "28 марта 2024",
+      verified: true
+    },
+    {
+      id: 14,
+      name: "Валерия Назарова",
+      review: "Компьютерный стол с надстройкой решил проблему размещения оргтехники. Все провода спрятаны, системный блок в отдельной нише с вентиляцией. Работать стало комфортно.",
+      rating: 5,
+      category: "Столы",
+      date: "16 февраля 2024",
+      verified: true
+    },
+    {
+      id: 15,
+      name: "Артем Белый",
+      review: "Встроенный шкаф в мансарде учитывает все скосы крыши. Ни одного сантиметра не пропало! Отличная фурнитура, тихие доводчики. Очень доволен результатом.",
+      rating: 5,
+      category: "Шкафы",
+      date: "9 января 2024",
+      verified: true
+    },
+    {
+      id: 16,
+      name: "Кристина Ковалева",
+      review: "Полочки в детскую комнату стали любимым местом для игрушек и книг. Закругленные углы безопасны для малыша, яркое покрытие легко моется. Ребенок сам наводит порядок!",
+      rating: 4,
+      category: "Полки",
+      date: "22 декабря 2023",
+      verified: true
+    },
+    {
+      id: 17,
+      name: "Николай Дорошенко",
+      review: "Тумба под телевизор с закрытыми и открытыми секциями очень практична. Вся техника спрятана, но доступ удобный. Провода проложены внутри, снаружи ничего не видно.",
+      rating: 5,
+      category: "Комоды",
+      date: "11 ноября 2023",
+      verified: true
+    },
+    {
+      id: 18,
+      name: "Элина Ткач",
+      review: "Консольный столик в прихожую стал изюминкой интерьера. Элегантные изогнутые ножки, идеальная полировка. Гости всегда интересуются, где такой красивый приобрели.",
+      rating: 5,
+      category: "Столы",
+      date: "6 октября 2023",
+      verified: true
+    }
   ]
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -357,36 +524,45 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             Отзывы наших клиентов
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Мария",
-                review: "Заказывали встроенный шкаф в прихожую. Мастер идеально вписал его в нашу нишу неправильной формы, и теперь у нас в два раза больше места для хранения. Спасибо команде!",
-                rating: 5
-              },
-              {
-                name: "Дмитрий",
-                review: "Делали гардеробную в спальне 3х2 метра. Система хранения продумана до мелочей - отдельные зоны для костюмов, белья, обуви. Даже антресоли используются максимально эффективно.",
-                rating: 5
-              },
-              {
-                name: "Анна",
-                review: "Заказали кухонный гарнитур с нестандартными размерами под потолки 3.2м. Верхние шкафы сделали до самого верха, и кухня выглядит монолитно. Качество фасадов отличное!",
-                rating: 5
-              }
-            ].map((review, index) => (
+            {allReviews.slice(0, 3).map((review) => (
               <div
-                key={review.name}
-                className="bg-white p-6 rounded-2xl shadow-lg"
+                key={review.id}
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="flex items-center mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={`star-${review.name}-${i}`} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={`star-${review.id}-${i}`} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 rounded-full">
+                    {review.category}
+                  </span>
                 </div>
-                <p className="text-zinc-600 mb-4 italic font-pusia-bold">"{review.review}"</p>
-                <p className="font-semibold text-zinc-900 font-pusia-bold">{review.name}</p>
+                <p className="text-zinc-600 mb-4 italic font-pusia-bold">{review.review}</p>
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-zinc-900 font-pusia-bold">{review.name}</p>
+                  {review.verified && (
+                    <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">
+                      ✓ Проверено
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-zinc-500 mt-2">{review.date}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <motion.button
+              onClick={() => setIsReviewModalOpen(true)}
+              className="bg-zinc-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center space-x-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Все отзывы</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
           </div>
         </div>
       </section>
@@ -424,6 +600,13 @@ export default function MainSection({ showContactForm = false, setShowContactFor
           </div>
         </div>
       </section>
+
+      {/* Review Modal */}
+      <ReviewModal
+        reviews={allReviews}
+        isOpen={isReviewModalOpen}
+        onClose={() => setIsReviewModalOpen(false)}
+      />
     </div>
   )
 }
