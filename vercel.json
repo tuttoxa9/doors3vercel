@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
+  "devCommand": "bun run dev",
+  "functions": {
+    "src/app/api/*/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "images": {
+    "sizes": [16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "source.unsplash.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "images.unsplash.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "ext.same-assets.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "ugc.same-assets.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "cdn.maestromebel.by"
+      },
+      {
+        "protocol": "https",
+        "hostname": "firebasestorage.googleapis.com"
+      },
+      {
+        "protocol": "https",
+        "hostname": "*.firebasestorage.app"
+      },
+      {
+        "protocol": "https",
+        "hostname": "mebel-be602.firebasestorage.app"
+      }
+    ]
+  }
+}
