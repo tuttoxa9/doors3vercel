@@ -62,7 +62,7 @@ export default function DeliveryPage() {
                     <Truck className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2 font-pusia-bold">До подъезда</h3>
-                  <p className="text-zinc-300 text-sm">Наша собственная служба доставки</p>
+                  <p className="text-zinc-300 text-sm">По Минску в течении дня 10 руб</p>
                 </div>
 
                 <div className="space-y-4 mb-8">
