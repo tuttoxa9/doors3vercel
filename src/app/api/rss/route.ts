@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 export async function GET() {
-  const baseUrl = 'https://maestroworks.ru';
+  const baseUrl = 'https://maestromebel.by';
   const lastBuildDate = new Date().toUTCString();
 
   let rssItems: Array<{
@@ -105,8 +105,8 @@ export async function GET() {
     <language>ru-RU</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <atom:link href="${baseUrl}/api/rss" rel="self" type="application/rss+xml"/>
-    <managingEditor>info@maestroworks.ru (MAESTRO)</managingEditor>
-    <webMaster>info@maestroworks.ru (MAESTRO)</webMaster>
+    <managingEditor>info@maestromebel.by (MAESTRO)</managingEditor>
+    <webMaster>info@maestromebel.by (MAESTRO)</webMaster>
     <category>Мебель</category>
     <category>Интерьер</category>
     <category>Дизайн</category>

@@ -30,12 +30,11 @@ Allow: /#shop
 Allow: /#faq
 
 # Sitemap locations for all domains
-Sitemap: https://maestroworks.ru/sitemap.xml
-Sitemap: https://maestroworks.netlify.app/sitemap.xml
+Sitemap: https://maestromebel.by/sitemap.xml
 Sitemap: https://uhtimebel.by/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
 # Host preferences (primary domain)
-Host: maestroworks.ru
+Host: maestromebel.by

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   creator: "MAESTRO",
   publisher: "MAESTRO",
   alternates: {
-    canonical: "https://maestroworks.ru",
+    canonical: "https://maestromebel.by",
     types: {
       'application/rss+xml': [
         { url: '/api/rss', title: 'MAESTRO RSS Feed' }
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MAESTRO - Шкафы на заказ в Минске | Мебель по индивидуальным размерам",
     description: "⭐ Доставляем шкафы по всей Беларуси более 10 лет. Мебель от производителя. Гарантия, 3D дизайн. От 290 BYN. ☎️ +375291565232",
-    url: "https://maestroworks.ru",
+    url: "https://maestromebel.by",
     siteName: "MAESTRO - Мебель на заказ",
     locale: "ru_BY",
     type: "website",
     images: [
       {
-        url: "https://maestroworks.ru/showroom.webp",
+        url: "https://maestromebel.by/showroom.webp",
         width: 1200,
         height: 630,
         alt: "MAESTRO - Мебельная мастерская в Минске. Шкафы на заказ по индивидуальным размерам",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MAESTRO - Шкафы на заказ в Минске | От 290 BYN",
     description: "⭐ Доставляем шкафы по всей Беларуси более 10 лет. Мебель от производителя. Гарантия, 3D дизайн",
-    images: ["https://maestroworks.ru/showroom.webp"],
+    images: ["https://maestromebel.by/showroom.webp"],
     site: "@maestro_by",
   },
   robots: {
@@ -98,7 +98,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="alternate" type="application/rss+xml" title="MAESTRO RSS Feed" href="/api/rss" />
-        <link rel="canonical" href="https://maestroworks.ru" />
+        <link rel="canonical" href="https://maestromebel.by" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

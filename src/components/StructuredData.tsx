@@ -5,7 +5,7 @@ export default function StructuredData() {
     "name": "MAESTRO",
     "alternateName": ["Maestro Works", "МАЭСТРО", "Мебель MAESTRO"],
     "description": "Изготовление качественных шкафов на заказ в Минске. Шкафы, гардеробные, детская мебель по индивидуальным размерам. Гарантия 5 лет, бесплатный замер.",
-    "url": "https://maestroworks.ru",
+    "url": "https://maestromebel.by",
     "telephone": "+375291565232",
     "email": "mebelkdomy.by@gmail.com",
     "address": {
@@ -77,8 +77,8 @@ export default function StructuredData() {
         }
       ]
     },
-    "logo": "https://maestroworks.ru/favicon.svg",
-    "image": "https://maestroworks.ru/showroom.webp",
+    "logo": "https://maestromebel.by/favicon.svg",
+    "image": "https://maestromebel.by/showroom.webp",
     "sameAs": [
       "https://www.instagram.com/maestro_furniture",
       "https://vk.com/maestro_furniture",
@@ -90,7 +90,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "MAESTRO",
-    "url": "https://maestroworks.ru",
+    "url": "https://maestromebel.by",
     "description": "Официальный сайт компании MAESTRO - изготовление мебели на заказ в Минске",
     "publisher": {
       "@type": "Organization",
@@ -100,7 +100,7 @@ export default function StructuredData() {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://maestroworks.ru/?search={search_term_string}"
+        "urlTemplate": "https://maestromebel.by/?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -114,13 +114,13 @@ export default function StructuredData() {
         "@type": "ListItem",
         "position": 1,
         "name": "Главная",
-        "item": "https://maestroworks.ru"
+        "item": "https://maestromebel.by"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Каталог",
-        "item": "https://maestroworks.ru#shop"
+        "item": "https://maestromebel.by#shop"
       }
     ]
   };
@@ -163,7 +163,7 @@ export default function StructuredData() {
       "ratingCount": "127"
     },
     "category": "Мебель",
-    "image": "https://maestroworks.ru/showroom.webp"
+    "image": "https://maestromebel.by/showroom.webp"
   };
 
 
