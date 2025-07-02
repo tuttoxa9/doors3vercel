@@ -24,7 +24,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 mt-4 md:mt-0">
+            <Link href="/delivery" className="text-zinc-600 hover:text-zinc-900 transition-colors duration-200 font-pusia-bold">
+              Доставка
+            </Link>
             <Link href="/privacy" className="text-zinc-600 hover:text-zinc-900 transition-colors duration-200 font-pusia-bold">
               Политика конфиденциальности
             </Link>

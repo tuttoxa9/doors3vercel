@@ -49,11 +49,11 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => setActiveSection('main')}
               className={cn(
-                "px-6 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2 bg-zinc-900 text-white hover:bg-zinc-800",
+                "px-4 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2 bg-zinc-900 text-white hover:bg-zinc-800",
                 activeSection === 'main' ? "font-semibold border-white" : "border-transparent"
               )}
             >
@@ -68,11 +68,17 @@ export default function Header({ scrollY, activeSection, setActiveSection, onCon
                 }
               }}
               className={cn(
-                "px-6 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2 bg-zinc-900 text-white hover:bg-zinc-800",
+                "px-4 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2 bg-zinc-900 text-white hover:bg-zinc-800",
                 activeSection === 'shop' ? "font-semibold border-white" : "border-transparent"
               )}
             >
               Каталог
+            </button>
+            <button
+              onClick={() => { window.location.href = '/delivery' }}
+              className="px-4 py-2 rounded-full text-lg font-medium transition-all duration-200 border-2 bg-zinc-900 text-white hover:bg-zinc-800 border-transparent"
+            >
+              Доставка
             </button>
           </div>
 
