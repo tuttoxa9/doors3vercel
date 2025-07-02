@@ -38,7 +38,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
   const allReviews = [
     {
       id: 1,
-      name: "Виталий Новицкий",
+      name: "Виталий",
       review: "Заказывали встроенный шкаф в прихожую. Мастер идеально вписал его в нашу нишу неправильной формы, и теперь у нас в два раза больше места для хранения. Спасибо команде!",
       rating: 5,
       category: "Шкафы",
@@ -47,7 +47,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 2,
-      name: "Екатерина Волкова",
+      name: "Екатерина",
       review: "Делали гардеробную в спальне 3х2 метра. Система хранения продумана до мелочей - отдельные зоны для костюмов, белья, обуви. Даже антресоли используются максимально эффективно.",
       rating: 4,
       category: "Шкафы",
@@ -56,7 +56,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 3,
-      name: "Иван Петренко",
+      name: "Иван",
       review: "Заказали кухонный гарнитур с нестандартными размерами под потолки 3.2м. Верхние шкафы сделали до самого верха, и кухня выглядит монолитно. Качество фасадов отличное!",
       rating: 5,
       category: "Шкафы",
@@ -65,7 +65,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 4,
-      name: "Светлана Кравцова",
+      name: "Светлана",
       review: "Комод в детскую комнату превзошел все ожидания! 6 просторных ящиков с плавным закрыванием, качественная фурнитура. Ребенок легко может сам доставать вещи, все под рукой.",
       rating: 5,
       category: "Комоды",
@@ -74,7 +74,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 5,
-      name: "Роман Зубко",
+      name: "Роман",
       review: "Письменный стол для домашнего офиса сделали точно по размерам ниши. Встроенные ящики и кабель-каналы - все продумано. Работать стало намного удобнее, все документы под рукой.",
       rating: 4,
       category: "Столы",
@@ -83,7 +83,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 6,
-      name: "Анжелика Михайлова",
+      name: "Анжелика",
       review: "Полки в гостиную под телевизор - просто находка! Скрытое крепление, идеально ровные линии. Вся техника размещена аккуратно, проводов не видно. Интерьер преобразился!",
       rating: 5,
       category: "Полки",
@@ -92,7 +92,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 7,
-      name: "Максим Лебедев",
+      name: "Максим",
       review: "Обеденный стол на 8 человек с раздвижным механизмом работает безупречно уже полгода. Качество древесины отличное, никаких сколов и царапин. Гости всегда восхищаются!",
       rating: 5,
       category: "Столы",
@@ -101,7 +101,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 8,
-      name: "Юлия Савченко",
+      name: "Юлия",
       review: "Комод-трансформер в спальню стал настоящим спасением для маленькой квартиры. Днем - стильный комод, вечером - туалетный столик с зеркалом. Гениальное решение!",
       rating: 4,
       category: "Комоды",
@@ -119,7 +119,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 10,
-      name: "Ольга Тимошенко",
+      name: "Ольга",
       review: "Шкаф-купе на всю стену в коридоре вместил вещи всей семьи. Зеркальные двери визуально расширили пространство. Механизм работает бесшумно, направляющие качественные.",
       rating: 5,
       category: "Шкафы",
@@ -128,7 +128,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 11,
-      name: "Денис Клименко",
+      name: "Денис",
       review: "Журнальный столик с подъемной столешницей - очень функциональная вещь! Скрытые ящики для мелочей, а при подъеме получается полноценное рабочее место. Качество на высоте.",
       rating: 4,
       category: "Столы",
@@ -137,7 +137,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 12,
-      name: "Инна Григорьева",
+      name: "Инна",
       review: "Антресольные полки на кухне увеличили место для хранения в разы. Доступ удобный, крепления надежные. Даже через год все держится отлично, ничего не провисает.",
       rating: 5,
       category: "Полки",
@@ -146,7 +146,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 13,
-      name: "Богдан Романов",
+      name: "Богдан",
       review: "Комод под лестницей - идеальное использование пространства! Нестандартная трапециевидная форма, но все ящики выдвигаются легко. Мастера учли каждый сантиметр.",
       rating: 4,
       category: "Комоды",
@@ -155,7 +155,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 14,
-      name: "Валерия Назарова",
+      name: "Валерия",
       review: "Компьютерный стол с надстройкой решил проблему размещения оргтехники. Все провода спрятаны, системный блок в отдельной нише с вентиляцией. Работать стало комфортно.",
       rating: 5,
       category: "Столы",
@@ -164,7 +164,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 15,
-      name: "Артем Белый",
+      name: "Артем",
       review: "Встроенный шкаф в мансарде учитывает все скосы крыши. Ни одного сантиметра не пропало! Отличная фурнитура, тихие доводчики. Очень доволен результатом.",
       rating: 5,
       category: "Шкафы",
@@ -173,7 +173,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 16,
-      name: "Кристина Ковалева",
+      name: "Кристина",
       review: "Полочки в детскую комнату стали любимым местом для игрушек и книг. Закругленные углы безопасны для малыша, яркое покрытие легко моется. Ребенок сам наводит порядок!",
       rating: 4,
       category: "Полки",
@@ -182,7 +182,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 17,
-      name: "Николай Дорошенко",
+      name: "Николай",
       review: "Тумба под телевизор с закрытыми и открытыми секциями очень практична. Вся техника спрятана, но доступ удобный. Провода проложены внутри, снаружи ничего не видно.",
       rating: 5,
       category: "Комоды",
@@ -191,8 +191,8 @@ export default function MainSection({ showContactForm = false, setShowContactFor
     },
     {
       id: 18,
-      name: "Элина Ткач",
-      review: "Консольный столик в прихожую стал изюминкой интерьера. Элегантные изогнутые ножки, идеальная полировка. Гости всегда интересуются, где такой красивый приобрели.",
+      name: "Элина",
+      review: "Консольный столик в прихожую стал изюминкой интерьера. Элегантные изогнутые ножки, приятная полировка. Гости всегда интересуются, где такой красивый приобрели.",
       rating: 5,
       category: "Столы",
       date: "6 октября 2023",
@@ -542,11 +542,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
                 <p className="text-zinc-600 mb-4 italic font-pusia-bold">{review.review}</p>
                 <div className="flex items-center justify-between">
                   <p className="font-semibold text-zinc-900 font-pusia-bold">{review.name}</p>
-                  {review.verified && (
-                    <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">
-                      ✓ Проверено
-                    </span>
-                  )}
+
                 </div>
                 <p className="text-xs text-zinc-500 mt-2">{review.date}</p>
               </div>

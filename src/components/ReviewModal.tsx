@@ -69,7 +69,6 @@ export default function ReviewModal({ reviews, isOpen, onClose, selectedCategory
                   </h2>
                   <p className="text-zinc-600 mt-1">
                     {selectedCategory ? `Отзывы по категории: ${selectedCategory}` : 'Все отзывы'}
-                    ({filteredReviews.length} отзыв{filteredReviews.length === 1 ? '' : filteredReviews.length < 5 ? 'а' : 'ов'})
                   </p>
                 </div>
                 <button
@@ -101,11 +100,7 @@ export default function ReviewModal({ reviews, isOpen, onClose, selectedCategory
                             <h3 className="font-semibold text-zinc-900 font-pusia-bold">
                               {review.name}
                             </h3>
-                            {review.verified && (
-                              <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
-                                ✓ Проверено
-                              </span>
-                            )}
+
                           </div>
                           <div className="flex items-center space-x-2 mt-1">
                             <div className="flex">
