@@ -37,34 +37,7 @@ export default function DeliveryPage() {
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="py-12 bg-zinc-50">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-zinc-900 mb-2">Гарантия сохранности</h3>
-              <p className="text-zinc-600 text-sm">Все товары надёжно упаковываются для безопасной транспортировки</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="font-semibold text-zinc-900 mb-2">Быстрая доставка</h3>
-              <p className="text-zinc-600 text-sm">Доставляем от 1 до 5 дней в зависимости от выбранной службы</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="font-semibold text-zinc-900 mb-2">По всей Беларуси</h3>
-              <p className="text-zinc-600 text-sm">Доставляем в любой город и населённый пункт страны</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Delivery Services */}
       <section className="py-16 bg-white">
@@ -105,34 +78,14 @@ export default function DeliveryPage() {
 
                 <div className="space-y-3">
                   <h4 className="font-semibold text-sm uppercase tracking-wide text-zinc-300">График отправки</h4>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-zinc-400">ПН</span>
-                      <span>21:00</span>
+                  <div className="bg-white/5 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-zinc-300 text-sm">ПН — ПТ</span>
+                      <span className="text-white font-semibold">21:00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-400">ВТ</span>
-                      <span>21:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-400">СР</span>
-                      <span>21:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-400">ЧТ</span>
-                      <span>21:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-400">ПТ</span>
-                      <span>21:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-400">СБ</span>
-                      <span className="text-red-400">—</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-400">ВС</span>
-                      <span className="text-red-400">—</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-zinc-300 text-sm">СБ, ВС</span>
+                      <span className="text-red-400 font-semibold">Не отправляем</span>
                     </div>
                   </div>
                 </div>
@@ -165,34 +118,14 @@ export default function DeliveryPage() {
 
                 <div className="space-y-3">
                   <h4 className="font-semibold text-sm uppercase tracking-wide text-zinc-600">График отправки</h4>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ПН</span>
-                      <span className="text-zinc-900">17:00</span>
+                  <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-zinc-600 text-sm">ПН — ПТ</span>
+                      <span className="text-zinc-900 font-semibold">17:00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ВТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">СР</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ЧТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ПТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-500">СБ</span>
-                      <span className="text-red-500">—</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-500">ВС</span>
-                      <span className="text-red-500">—</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-zinc-600 text-sm">СБ, ВС</span>
+                      <span className="text-red-500 font-semibold">Не отправляем</span>
                     </div>
                   </div>
                 </div>
@@ -225,34 +158,14 @@ export default function DeliveryPage() {
 
                 <div className="space-y-3">
                   <h4 className="font-semibold text-sm uppercase tracking-wide text-zinc-600">График отправки</h4>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ПН</span>
-                      <span className="text-zinc-900">17:00</span>
+                  <div className="bg-zinc-50 rounded-xl p-4 border border-zinc-100">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-zinc-600 text-sm">ПН — ПТ</span>
+                      <span className="text-zinc-900 font-semibold">17:00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ВТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">СР</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ЧТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">ПТ</span>
-                      <span className="text-zinc-900">17:00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-500">СБ</span>
-                      <span className="text-red-500">—</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-red-500">ВС</span>
-                      <span className="text-red-500">—</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-zinc-600 text-sm">СБ, ВС</span>
+                      <span className="text-red-500 font-semibold">Не отправляем</span>
                     </div>
                   </div>
                 </div>
