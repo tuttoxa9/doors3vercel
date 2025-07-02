@@ -292,7 +292,7 @@ export default function MainSection({ showContactForm = false, setShowContactFor
             {/* Кнопка доставки только для мобильных устройств */}
             <Link href="/delivery" className="md:hidden">
               <motion.div
-                className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors duration-200 inline-flex items-center space-x-2 border border-white/20"
+                className="bg-zinc-900 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center space-x-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
