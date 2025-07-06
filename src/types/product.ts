@@ -1,3 +1,8 @@
+export interface ProductImage {
+  url: string
+  position: number
+}
+
 export interface Product {
   id: string
   name: string
@@ -9,6 +14,7 @@ export interface Product {
   description: string
   colors: string[]
   images: string[]
+  imagePositions?: { [imageUrl: string]: number }
   inStock: boolean
   featured: boolean
   createdAt: Date

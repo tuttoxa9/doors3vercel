@@ -59,6 +59,7 @@ export function useProducts(category: ProductCategory = 'Шкафы'): UseProduc
             description: data.description || '',
             colors: Array.isArray(data.colors) ? data.colors : [],
             images: Array.isArray(data.images) ? data.images : [],
+            imagePositions: data.imagePositions || {},
             inStock: Boolean(data.inStock),
             featured: Boolean(data.featured),
             createdAt: data.createdAt?.toDate() || new Date(),

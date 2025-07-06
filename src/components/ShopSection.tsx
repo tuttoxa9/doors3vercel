@@ -69,6 +69,23 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
     return `от ${price.min.toLocaleString()} BYN`
   }
 
+  // Функция для получения первого изображения с учетом сортировки по position
+  const getFirstImage = (images: string[], imagePositions?: { [key: string]: number }) => {
+    if (!images.length) return null
+
+    if (!imagePositions || Object.keys(imagePositions).length === 0) {
+      return images[0] // Возвращаем первое изображение, если позиции не указаны
+    }
+
+    const sortedImages = [...images].sort((a, b) => {
+      const positionA = imagePositions[a] || 999 // Изображения без позиции идут в конец
+      const positionB = imagePositions[b] || 999
+      return positionA - positionB
+    })
+
+    return sortedImages[0]
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background Image */}
@@ -304,7 +321,7 @@ export default function ShopSection({ onContactClick }: ShopSectionProps) {
                       <div className="relative overflow-hidden">
                         {product.images && product.images.length > 0 ? (
                           <OptimizedImage
-                            src={product.images[0]}
+                            src={getFirstImage(product.images, product.imagePositions) || product.images[0]}
                             alt={product.name}
                             className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                             fallbackClassName="w-full aspect-square group-hover:bg-zinc-200 transition-colors duration-300"

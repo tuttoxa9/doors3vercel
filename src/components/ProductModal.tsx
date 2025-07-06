@@ -21,6 +21,19 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
   const { addToCart } = useCart()
   const imageRef = useRef<HTMLDivElement>(null)
 
+  // Функция для сортировки изображений по position
+  const getSortedImages = (images: string[], imagePositions?: { [key: string]: number }) => {
+    if (!imagePositions || Object.keys(imagePositions).length === 0) {
+      return images // Возвращаем исходный порядок, если позиции не указаны
+    }
+
+    return [...images].sort((a, b) => {
+      const positionA = imagePositions[a] || 999 // Изображения без позиции идут в конец
+      const positionB = imagePositions[b] || 999
+      return positionA - positionB
+    })
+  }
+
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -44,12 +57,15 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
 
   if (!product) return null
 
+  // Получаем отсортированные изображения
+  const sortedImages = getSortedImages(product.images, product.imagePositions)
+
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % product.images.length)
+    setCurrentImageIndex((prev) => (prev + 1) % sortedImages.length)
   }
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length)
+    setCurrentImageIndex((prev) => (prev - 1 + sortedImages.length) % sortedImages.length)
   }
 
   const formatPrice = (price: { min: number; max: number }) => {
@@ -80,7 +96,7 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
   }
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!imageRef.current || product.images.length <= 1) return
+    if (!imageRef.current || sortedImages.length <= 1) return
 
     const touchStart = Number.parseFloat(imageRef.current.dataset.touchStart || '0')
     const touchEnd = e.changedTouches[0].clientX
@@ -136,7 +152,7 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                 <div className="flex flex-col lg:flex-row">
                   {/* Image Section */}
                   <div className="lg:w-1/2 p-3 sm:p-4">
-                    {product.images.length > 0 ? (
+                    {sortedImages.length > 0 ? (
                       <div
                         ref={imageRef}
                         className="relative w-full aspect-square bg-zinc-50 rounded-xl overflow-hidden max-w-sm mx-auto lg:max-w-none"
@@ -144,7 +160,7 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                         onTouchEnd={handleTouchEnd}
                       >
                         <OptimizedImage
-                          src={product.images[currentImageIndex]}
+                          src={sortedImages[currentImageIndex]}
                           alt={product.name}
                           className="w-full h-full object-cover"
                           fallbackClassName="w-full h-full"
@@ -152,7 +168,7 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                         />
 
                         {/* Navigation buttons */}
-                        {product.images.length > 1 && (
+                        {sortedImages.length > 1 && (
                           <>
                             <button
                               onClick={prevImage}
@@ -170,11 +186,11 @@ export default function ProductModal({ product, isOpen, onClose, onContactClick 
                         )}
 
                         {/* Image indicators */}
-                        {product.images.length > 1 && (
+                        {sortedImages.length > 1 && (
                           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                            {product.images.map((_, index) => (
+                            {sortedImages.map((imageUrl, index) => (
                               <button
-                                key={index}
+                                key={imageUrl}
                                 onClick={() => setCurrentImageIndex(index)}
                                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
                                   index === currentImageIndex
