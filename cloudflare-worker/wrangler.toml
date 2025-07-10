@@ -4,8 +4,8 @@ compatibility_date = "2024-01-15"
 
 # Переменные окружения
 [vars]
-FIREBASE_STORAGE_BUCKET = "mebel-be602.firebasestorage.app"
-FIREBASE_PROJECT_ID = "mebel-be602"
+FIREBASE_STORAGE_BUCKET = "mebel1-36ef1.firebasestorage.app"
+FIREBASE_PROJECT_ID = "mebel1-36ef1"
 CDN_DOMAIN = "cdn.maestromebel.by"
 
 # Настройки роутов
