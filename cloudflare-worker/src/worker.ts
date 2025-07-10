@@ -30,6 +30,7 @@ export default {
       }
 
       console.log(`[Worker] Путь к файлу: ${filePath}`);
+      console.log(`[Worker] Используем Firebase Storage Bucket: ${env.FIREBASE_STORAGE_BUCKET}`);
 
       // Создаем кэш ключ на основе URL
       const cacheKey = new Request(request.url, request);
@@ -44,11 +45,15 @@ export default {
 
       console.log(`[Worker] Файл не в кэше, запрашиваем из Firebase Storage: ${filePath}`);
 
-      // Формируем URL для Firebase Storage
+      // Очищаем путь от лишних параметров
+      let cleanPath = filePath.replace('?alt=media', '');
+
       // URL-кодируем слэши как требует Firebase API
-      const encodedPath = filePath.replace(/\//g, '%2F');
+      const encodedPath = cleanPath.replace(/\//g, '%2F');
       const firebaseUrl = `https://firebasestorage.googleapis.com/v0/b/${env.FIREBASE_STORAGE_BUCKET}/o/${encodedPath}?alt=media`;
 
+      console.log(`[Worker] Чистый путь: ${cleanPath}`);
+      console.log(`[Worker] Закодированный путь: ${encodedPath}`);
       console.log(`[Worker] Firebase URL: ${firebaseUrl}`);
 
       // Запрашиваем файл из Firebase Storage
@@ -63,8 +68,22 @@ export default {
 
       if (!firebaseResponse.ok) {
         console.log(`[Worker] Ошибка от Firebase Storage: ${firebaseResponse.status} ${firebaseResponse.statusText}`);
-        return new Response(`Image not found: ${firebaseResponse.statusText}`, {
-          status: firebaseResponse.status
+        return new Response(JSON.stringify({
+          error: 'Image not found',
+          status: firebaseResponse.status,
+          statusText: firebaseResponse.statusText,
+          requestedPath: filePath,
+          cleanPath: cleanPath,
+          encodedPath: encodedPath,
+          firebaseUrl: firebaseUrl,
+          bucket: env.FIREBASE_STORAGE_BUCKET,
+          timestamp: new Date().toISOString()
+        }, null, 2), {
+          status: firebaseResponse.status,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }
         });
       }
 
@@ -93,7 +112,8 @@ export default {
 
           // Дополнительные заголовки
           'X-Cache-Status': 'MISS',
-          'X-Worker-Version': '1.0.0',
+          'X-Worker-Version': '1.3.0',
+          'X-Firebase-Bucket': env.FIREBASE_STORAGE_BUCKET,
         },
       });
 
@@ -106,11 +126,16 @@ export default {
 
     } catch (error) {
       console.error('[Worker] Ошибка:', error);
-      return new Response(`Internal Server Error: ${error.message}`, {
+      return new Response(JSON.stringify({
+        error: 'Internal Server Error',
+        message: error.message,
+        bucket: env?.FIREBASE_STORAGE_BUCKET || 'undefined',
+        timestamp: new Date().toISOString()
+      }, null, 2), {
         status: 500,
         headers: {
-          'Content-Type': 'text/plain',
-          'X-Error': 'true',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         }
       });
     }
